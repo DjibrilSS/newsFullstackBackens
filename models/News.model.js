@@ -5,12 +5,12 @@ const newsSchema = mongoose.Schema({
   text: String,
   img: {
     type: String,
-    default: ""
+    default: "",
   },
-  category: [{
+  category: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "Category"
-  }]
+    ref: "Category",
+  },
 });
 const News = mongoose.model("News", newsSchema);
 module.exports = News;

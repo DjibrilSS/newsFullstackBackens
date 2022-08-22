@@ -29,6 +29,6 @@ module.exports.userControllers = {
     const token = await jwt.sign(payload, process.env.SECRET_KEY, {
       expiresIn: "24h",
     });
-    res.json({ token });
+    res.json(token);
   },
 };

@@ -4,8 +4,13 @@ const commentSchema = mongoose.Schema({
   text: String,
   user: {
     type: mongoose.SchemaTypes.ObjectId,
-    ref: "User"
-  }
+    ref: "User",
+  },
+  news: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "News",
+    default: "",
+  },
 });
 const Comment = mongoose.model("Comment", commentSchema);
 module.exports = Comment;
