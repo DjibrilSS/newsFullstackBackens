@@ -23,7 +23,7 @@ module.exports.commentControllers = {
     }
   },
   getComment: async (req, res) => {
-    const comment = await Comment.find();
+    const comment = await Comment.find().populate("user");
     res.json(comment);
   },
 };
