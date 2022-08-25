@@ -17,7 +17,8 @@ module.exports.commentControllers = {
         user: payload.userId,
         news: req.body.news,
       });
-      return res.json(data);
+      const result = await data.populate("user")
+      return res.json(result);
     } catch (e) {
       return res.json("token error");
     }
