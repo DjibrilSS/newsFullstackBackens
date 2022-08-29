@@ -10,6 +10,7 @@ module.exports.commentControllers = {
     if (type !== "Bearer") {
       return res.status(401).json("type error");
     }
+    console.log(req.body);
     try {
       const payload = await jwt.verify(token, process.env.SECRET_KEY);
       const data = await Comment.create({
@@ -17,7 +18,7 @@ module.exports.commentControllers = {
         user: payload.userId,
         news: req.body.news,
       });
-      const result = await data.populate("user")
+      const result = await data.populate("user");
       return res.json(result);
     } catch (e) {
       return res.json("token error");
